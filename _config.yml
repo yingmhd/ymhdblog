@@ -1,0 +1,28 @@
+encoding: utf-8
+title: 英目花盗
+description: 英目花盗的个人博客
+keywords: Python,Blog,Css,Html,JavaScript
+author: ymhd
+
+
+baseurl: ''
+menu:
+  - title: Home
+    url: /
+  - title: Tags
+    url: /pages/tags.html
+  - title: Search
+    url: /pages/search.html
+  - title: Software
+    url: /pages/software.html
+  - title: About
+    url: /pages/about.html
+
+cssurl: /static/css
+jsurl: /static/js
+
+permalink: /posts/:year/:month/:day/:title.html
+kramdown:
+  auto_ids: true
+  input: GFM
+exclude: ['CNAME', 'README.md', 'build-tool']

@@ -1,0 +1,12 @@
+<header id="header">
+    <a class="logo" href="{{ site.baseurl }}" title="英目花盗的Blog"></a>
+    <div class="title"><a href="{{ site.baseurl }}" class="nav-a">{{ site.title }}</a></div>
+    <nav class="nav" id="nav">
+        <ul>
+            {% for menu in site.menu %}
+                <li><a href="{{ site.baseurl }}{{ menu.url }}" class="nav-a">{{ menu.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <a class="menu-tool" id="menu-tool" href="javascript:void(0)"></a>
+</header>
