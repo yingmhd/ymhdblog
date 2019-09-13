@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: JS原型
-Tags: JS
+tags: JS
 ---
 
 ## 正文

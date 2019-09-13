@@ -10,7 +10,7 @@
     width: 100%;
 }
 #searchbox input:focus{
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #45b787;
 }
 #searchlist{
     display: block;
@@ -28,6 +28,7 @@
     margin-bottom: 2px;
     display: list-item;
     text-align: -webkit-match-parent;
+    list-style-type: katakana-iroha;
 }
 
 #searchlist li time {
@@ -36,15 +37,30 @@
 }
 #searchlist li a {
     color: #111;
+    word-wrap: break-word;
+    font-size: 14px;
 }
 
 #searchlist li span>a {
-    font-size: 14px;
+    font-size: 12px;
     text-decoration: none;
     color: #666;
+    background-color: #ddd;
+    padding: 2px 5px;
+    border-radius: 8px;
+}
+#searchlist li span>a:hover {
+    background-color: #2c9678;
+    color: #fff;
 }
 @media screen and (max-width: 540px){
     #searchbox input{
         text-align: center;
+    }
+    #searchlist time,#searchlist span{
+        display: none;
+    }
+    #searchlist li {
+        list-style: none;
     }
 }

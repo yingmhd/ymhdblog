@@ -1,6 +1,6 @@
 ---
 layout: default
-css: [common.css,articlelist.css]
+css: [common.css]
 js: [common.js,header.js]
 ---
 <div id="articlelist" class="main-content">
@@ -11,22 +11,22 @@ js: [common.js,header.js]
 
 		{% if forloop.first or post_next_year != post_year %}
 		<div class="year-area">
-		<div class="type-head">{{ post_year }}</div>
+			<div class="type-head">{{ post_year }}</div>
 			<ul>
-		{% endif %}
+				{% endif %}
 
-		<li>
-			<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
-			<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-			<span>&nbsp;
-				{% for cat in post.Tags %}
-					<a href="{{site.baseUrl}}/pages/tags.html#{{ cat }}">{{ cat }}</a>
-				{% endfor %}
-			</span>
-		</li>
+				<li>
+					<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
+					<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+					<span>&nbsp;
+						{% for cat in post.tags %}
+							<a href="{{site.baseUrl}}{{site.tagsurl }}#{{ cat }}">{{ cat }}</a>
+						{% endfor %}
+					</span>
+				</li>
 
-		{% if forloop.last or post_previous_year != post_year %}
-		</ul>
+				{% if forloop.last or post_previous_year != post_year %}
+			</ul>
 		</div>
 		{% endif %}
 	{% endfor %}

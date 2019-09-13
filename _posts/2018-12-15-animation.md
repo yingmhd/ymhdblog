@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: CSS3动画
-Tags: CSS3
+tags: CSS3
 ---
 
 其实构建CSS3动画很简单，总的来说就是三个属性

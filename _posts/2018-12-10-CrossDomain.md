@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: 同源策略及跨域
-Tags: 跨域
+tags: 跨域
 ---
 
 ## 前言

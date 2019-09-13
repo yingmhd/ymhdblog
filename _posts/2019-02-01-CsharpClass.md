@@ -1,7 +1,7 @@
 ---
 layout: mypost
 title: C#之类和对象
-Tags: C#
+tags: C#
 ---
 ## 类和对象
 

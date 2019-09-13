@@ -4,13 +4,13 @@ layout: null
 var data ={
 "code" : 0 ,
 "baseurl":"{{ site.baseurl }}",
-"categoriesurl":"{{ site.categoriesurl }}",
+"tagsurl":"{{ site.tagsurl }}",
 "data" : [
 {% for post in site.posts %}
 {
 "title" : "{{ post.title }}",
 "time" : "{{ post.date | date: "%Y/%m/%d" }}",
-"categories":"{% for cat in post.categories %}{{ cat }}{% if forloop.rindex != 1 %}@{% endif %}{% endfor %}",
+"tags":"{% for cat in post.tags %}{{ cat }}{% if forloop.rindex != 1 %}@{% endif %}{% endfor %}",
 "url" : "{{ post.url }}"
 }
 {% if forloop.rindex != 1  %}
@@ -21,14 +21,14 @@ var data ={
 };
 
 var baseurl;
-var categoriesurl;
+var tagsurl;
 var text_input;
 var searchlist;
 var beforeinput="";
 
 function initsearch() {
     baseurl = data.baseurl;
-    categoriesurl = data.categoriesurl;
+    tagsurl = baseurl + data.tagsurl;
     text_input = document.getElementById("text-input");
     searchlist = document.getElementById("searchlist");
     text_input.addEventListener("input",inputchange);
@@ -54,7 +54,7 @@ function inputchange() {
                         addnode(dataarray[i]);
                         break;
                     }
-                    if (dataarray[i].categories.toLocaleUpperCase().match(keywords[j].toLocaleUpperCase())){
+                    if (dataarray[i].tags.toLocaleUpperCase().match(keywords[j].toLocaleUpperCase())){
                         addnode(dataarray[i]);
                         break;
                     }
@@ -70,9 +70,9 @@ function addnode(json_p) {
     var li = document.createElement('li');
     var node = "<time>"+json_p.time+"&nbsp;</time>";
     node+="<a href=\""+baseurl+json_p.url+"\">"+json_p.title+"</a>";
-    var arr = json_p.categories.split("@");
+    var arr = json_p.tags.split("@");
     for (var j = 0;j<arr.length;j++){
-        node+="<span>&nbsp;<a href=\""+categoriesurl+"/"+"#"+arr[j]+"\">"+arr[j]+"</a></span>";
+        node+="<span>&nbsp;<a href=\""+tagsurl+"/"+"#"+arr[j]+"\">"+arr[j]+"</a></span>";
     }
     li.innerHTML = node;
     searchlist.appendChild(li);
