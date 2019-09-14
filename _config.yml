@@ -5,7 +5,7 @@ keywords: Python,Blog,Css,Html,JavaScript
 author: ymhd
 
 
-baseurl: '/ymhdBlog'
+baseurl: ''
 menu:
   - title: Home
     url: /
@@ -20,6 +20,8 @@ menu:
 
 cssurl: /static/css
 jsurl: /static/js
+tagsurl: /pages/tags.html
+swimgurl: /static/img/software
 
 permalink: /posts/:year/:month/:day/:title.html
 kramdown:
