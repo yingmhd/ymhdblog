@@ -5,7 +5,7 @@ keywords: Python,Blog,Css,Html,JavaScript
 author: ymhd
 
 
-baseurl: ''
+baseurl: '/ymhdBlog'
 menu:
   - title: Home
     url: /
