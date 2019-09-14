@@ -1,15 +1,20 @@
 ---
 layout: default
-title: 安装教程
+title: 安装与破解
 css: [common.css,software.css]
 js: [header.js]
 ---
-<div id="mysearch" class="main-content">
-	<div id="searchbox">
-		<input type="text" id="text-input" placeholder="请输入日期,标题,分类的关键字 ">
-	</div>
-	<article>
-		<ul id="searchlist"></ul>
-	</article>
+<div id="softwareList" class="main-content">
+	<ul>
+		{% for post in site.posts  %}
+			{% if post.type == "software" %}
+				<li>
+					<a href="{{ site.baseurl }}{{ post.url }}">
+						<img src="{{ site.swimgurl }}/{{ post.imgurl }}">
+						<span>{{ post.title }}<span>
+					</a>
+				</li>
+				{% endif %}
+		{% endfor %}
+	</ul>
 </div>
-

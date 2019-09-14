@@ -248,3 +248,12 @@ footer a{
         display: none;
     }
 }
+
+/*关于我*/
+.aboutMe {
+    padding: 0 1em;
+    font-size: 1em;
+}
+.aboutMe span {
+    color: #45b787;
+}

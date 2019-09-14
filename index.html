@@ -9,12 +9,13 @@ js: [common.js,header.js]
 		{% capture post_previous_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
 		{% capture post_next_year %}{{ post.next.date | date: "%Y" }}{% endcapture %}
 
-		{% if forloop.first or post_next_year != post_year %}
+		{% if forloop.first or post_next_year != post_year and post_year != "1991"%}
 		<div class="year-area">
 			<div class="type-head">{{ post_year }}</div>
 			<ul>
-				{% endif %}
+		{% endif %}
 
+				{% if post.type != "software" %}
 				<li>
 					<time>{{ post.date | date: "%Y/%m/%d" }}&nbsp;</time>
 					<a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
@@ -24,8 +25,9 @@ js: [common.js,header.js]
 						{% endfor %}
 					</span>
 				</li>
+				{% endif %}
 
-				{% if forloop.last or post_previous_year != post_year %}
+		{% if forloop.last or post_previous_year != post_year %}
 			</ul>
 		</div>
 		{% endif %}
