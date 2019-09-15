@@ -4,7 +4,7 @@
 具体样式可进入我的博客[英目花盗的不老歌](http://www.ymhd.xyz/)查看
 ## 使用或修改
 如果仅做使用，直接`fork`,然后修改一些配置，具体配置我会在下面详细说明。            
-如果要再次开发，首先下载项目到本地，然后本地安装`jekyll`环境。打开命令行，cd到项目目录，执行命令`jekyll serve`，即可启动服务，复制地址`http://127.0.0.1:4000/`到浏览器即可访问
+如果要再次开发，首先下载项目到本地，然后本地安装`jekyll`环境。打开命令行，cd到项目目录，执行命令`jekyll serve`，即可启动服务，复制地址`http://127.0.0.1:4000/`到浏览器即可访问，如果懒得配置本地环境，可以选择[cloud studio](https://studio.dev.tencent.com/)在线开发，后期也可直接在腾讯云上发布你的项目
 ## 文件夹属性
 1. `_includes`放的页头和页脚页面
 2. `_layouts`放的两个母版页
@@ -36,3 +36,11 @@ tags: [标签1，标签2]
 
 ## 发布
 可把项目托管在`github`或者[腾讯云](https://dev.tencent.com/)上，两者都有提供`Pages服务`，可以免费发布在线上，因为国内`github`比较慢，所以我选择的是腾讯云，而且腾讯云操作也比较傻瓜式
+## 注意
+如果你选择项目托管于腾讯云，发布后腾讯云提供的默认网址是`xxxx.coding.me/yourBlog`,yourBlog是你的项目名称，如果想要正常访问必须配置`_config.yml`中的`baseurl`为`/yourBlog`，如果你配置了自己的域名，则不用配置
+## 截图
+![avatar](screenshot/1.png)
+![avatar](screenshot/2.png)
+![avatar](screenshot/3.png)
+![avatar](screenshot/4.png)
+![avatar](screenshot/5.png)
