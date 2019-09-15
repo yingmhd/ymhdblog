@@ -1,0 +1,32 @@
+---
+layout: mypost
+title: 将Mac的python版本从2.7升级到 3.7
+type: software
+imgurl: python.jpeg
+tags: software
+---
+
+## 前言
+因为mac自带python,默认2.7版本，但是卸载会引起其他问题，所以需要升级到3.7版本
+## 下载Python3.7
+官网下载地址：[https://www.python.org/downloads/](https://www.python.org/downloads/)     
+
+如果安装了`Homebrew`，直接通过命令`brew install python3`安装
+## 安装
+点击下载好的pkg文件进行安装，安装完成之后，python 3.70的默认安装路径如下：`/Library/Frameworks/Python.framework/Versions/3.7`
+
+## 修改profile文件
+终端输入命令：
+```
+open ~/.bash_profile
+```
+此时会弹出.bash_profile文件，在最后面加入：
+```
+alias python="/Library/Frameworks/Python.framework/Versions/3.7/bin/python3.7"
+```
+然后重启一下终端，命令如下：
+```
+source ~/.bash_profile
+```
+## 验证
+终端输入 python，如果显示的版本号是3.7，即表示成功升级了。
