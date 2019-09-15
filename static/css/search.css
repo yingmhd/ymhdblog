@@ -32,13 +32,16 @@
 }
 
 #searchlist li time {
-    color: #666;
+    color: #999;
     font-size: 14px;
 }
 #searchlist li a {
-    color: #111;
+    color: #666;
     word-wrap: break-word;
     font-size: 14px;
+}
+#searchlist li a:hover {
+    color: #2c9678;
 }
 
 #searchlist li span>a {
