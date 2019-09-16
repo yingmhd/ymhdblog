@@ -11,13 +11,13 @@
 		{% for js in page.js %}
 			<script type="text/javascript" src="{{site.baseurl}}{{site.jsurl}}/{{ js }}"></script>
 		{% endfor %}
-		<!-- <script type="text/javascript" src="{{site.baseurl}}{{site.jsurl}}/common.js"></script> -->
 		<title>{% if page.title %}{{ page.title }} {% else %}{{ site.title }}{% endif %}</title>
 	</head>
 <body>
 {% include header.html %}
     {{ content }}
 {% include footer.html %}
-<script type="text/javascript" src="//github.com/hustcc/canvas-nest.js/blob/master/dist/canvas-nest.js"></script>
+
+<script type="text/javascript" src="{{site.baseurl}}{{site.jsurl}}/common.js"></script>
 </body>
 </html>
