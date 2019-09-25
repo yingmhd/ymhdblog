@@ -95,7 +95,6 @@
 #mypost .main pre.highlight {
 	width: 100%;
     overflow: auto;
-    max-height: 700px;
 }
 
 /*表格样式*/
