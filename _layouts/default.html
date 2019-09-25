@@ -5,6 +5,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 		<link rel="icon" href="{{site.baseurl}}/static/img/favicon.ico" type="image/x-icon" />
 		<meta name="google-site-verification" content="tzWwQdgHYdn1m6bNUHk15jTzVRE6-rOibOwl2hS_zUE" />
+		<meta name="description" content="{% if page.description %}{{ page.description }} {% else %}{{ site.description }}{% endif %}">
+		<meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% endif %}">
 
 		{% for css in page.css %}
 			<link rel="stylesheet" href="{{site.baseurl}}{{site.cssurl}}/{{ css }}">

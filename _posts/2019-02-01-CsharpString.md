@@ -1,6 +1,8 @@
 ---
 layout: mypost
 title: C#之String类的常用方法
+description: 初识C#之String类的常用方法
+keywords: C# string
 tags: C#
 ---
 

@@ -1,6 +1,8 @@
 ---
 layout: mypost
 title: 同源策略及跨域
+description: 网站的同源策略以及跨域方法
+keywords: 同源策略,跨域
 tags: 跨域
 ---
 

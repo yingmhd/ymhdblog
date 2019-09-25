@@ -27,6 +27,8 @@
 ---
 layout: 母版(mypost|default)
 title: 标题
+description: 页面的描述（用于SEO）
+keywords: 关键字（用于SEO）
 tags: [标签1，标签2]
 ---
 文章内容，MD格式

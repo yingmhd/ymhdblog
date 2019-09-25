@@ -1,6 +1,8 @@
 ---
 layout: mypost
 title: C#之类和对象
+description: 初步认识C#类和对象
+keywords: C#类
 tags: C#
 ---
 ## 类和对象

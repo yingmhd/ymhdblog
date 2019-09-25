@@ -1,6 +1,8 @@
 ---
 layout: mypost
 title: JS原型
+description: JS的原型，构造方法以及继承
+keywords: JS prototype,JS 构造方法,JS 原型继承,instanceof,hasOwnProperty,isPrototypeOf
 tags: JS
 ---
 
