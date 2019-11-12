@@ -6,7 +6,7 @@
 
 html,
 body {
-    font: 400 16px/1.7 "Microsoft JhengHei", sans-serif;
+    font:400 16px/1.7 Consolas,Helvetica Neue,Helvetica,Arial,sans-serif;
     height: 100%;
     color: #501B15;
 }
@@ -107,6 +107,9 @@ body {
     text-decoration: none;
     cursor: auto;
     cursor: pointer;
+    display: inline-block;
+    height: 3.4em;
+    font-size: 1.2em;
 }
 
 #header .menu-tool{
@@ -235,9 +238,25 @@ footer a{
     color: #666;
     word-wrap: break-word;
     font-size: 14px;
+    text-decoration: none;
+    position: relative;
+    height: 30px;
 }
-#articlelist li>a:hover {
+#articlelist li>a:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: #45b787;
+    left: 0;
+    transition: width 0.4s ease-in-out;
+}
+#articlelist li>a:hover{
     color: #2c9678;
+}
+#articlelist li>a:hover::after {
+    width: 100%;
 }
 #articlelist li span>a{
     font-size: 12px;
