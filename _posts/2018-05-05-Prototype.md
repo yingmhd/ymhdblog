@@ -6,16 +6,22 @@ keywords: JS prototype,JS 构造方法,JS 原型继承,instanceof,hasOwnProperty
 tags: JS
 ---
 
-## 正文
+## 前言
 
 * 每一个函数都有一个prototype属性，它是一个指针指向对象，这个对象就是通过调用构造函数而创建的的对象实例的原型对象。
->Person.prototype == man
+```
+Person.prototype == man
+```
 * 所有的原型对象(Person.prototype)里面有一个属性(constructor)指向prototype属性所在的函数指针，即构造函数(Person)。
-> Person.prototype.constructor == Person
+```
+ Person.prototype.constructor == Person
+ ```
 * 构造函数创建的实例对象（man）,默认会包含一个内部属性(\__proto__)，指向构造函数的原型对象(Person.prototype)
-> man.\__proto__ == Person.prototype
+```
+ man.\__proto__ == Person.prototype
+ ```
 
-### 原型的语法：
+## 原型的语法：
 ```
 function Person(){}
 Person.prototype.name = 'NIKE';
@@ -39,8 +45,10 @@ String.prototype.test = function(){}
 var str = 'sssssss';
 str.test();
 ```
->原型模式的缺点：原型中所有的属性都是共享的，所有实例对象都会共享
->>解决办法：构造函数+原型对象
+>原型模式的缺点：原型中所有的属性都是共享的，所有实例对象都会共享           
+
+
+解决办法：构造函数+原型对象
 ```
 function Person(name,size){
   this.name = name;
@@ -75,8 +83,8 @@ function Person(name,size){
 ```
 >这两种模式的问题是：创建的对象跟构造函数没有一毛钱关系。
 
-### 继承
-##### 1.原型链继承
+## 继承
+### 1.原型链继承
 ```
 function Super(){}
 Super.prototype.say = function(){
@@ -95,7 +103,7 @@ Sub.prototype.say = function(){
 
 > 缺点：原型属性会被所有实例共享，并且不能想超类行的构造函数（Super）传递参数。
 
-##### 2. 借用构造函数
+### 2. 借用构造函数
 ```
 function Super(name){
   this.name = name;
@@ -106,7 +114,7 @@ function Sub(name){
 ```
 > 优点：可以传递参数<br/>缺点：方法都在构造函数里面定义，没有函数复用的意义
 
-##### 3.组合继承
+### 3.组合继承
 ```
 function Super(name){
   this.name = name;
@@ -125,7 +133,7 @@ Sub.prototype.constructor = Sub;
 ```
 >缺点：需要调用两次构造函数(call和实例化)
 
-##### 4.原型式继承
+### 4.原型式继承
 ```
 var person = {
   name : 'NIKE',
@@ -134,7 +142,8 @@ var person = {
 var anotherPerson = Object.create(person);
 ```
 >优点：不需要创建构造函数<br/>缺点：跟原型模式一样，会共享属性
->>题外：Object.create的实现：
+           
+>题外：Object.create的实现：
 
 ```
 function object(o){
@@ -143,7 +152,7 @@ function object(o){
   return new F();
 }
 ```
-##### 5.寄生组合式继承（最理想的继承方式）
+### 5.寄生组合式继承（最理想的继承方式）
 ```
 function inheritPrototype(sub,sup){
   var prototype = Object.create(sup.prototype);
@@ -164,7 +173,7 @@ inheritPrototype(Sub,Super);
 ```
 >优点：不必为了子类型的原型而调用超类型的构造函数（我们所需要的无非是超类型原型的一个副本）
 
-#### 面向对象中牵扯到的方法：
+## 面向对象中牵扯到的方法：
 1. Object.defineProperty() 定义对象数据的属性
 ```
 var person = {}

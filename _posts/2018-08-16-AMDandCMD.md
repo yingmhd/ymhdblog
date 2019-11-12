@@ -10,9 +10,7 @@ tags: JS
 
 之前开发中一直用`SeaJS`，一直说封装`JS`代码符合`CMD`规范，但也不知道规范是个啥，今天来学习学习理论。
 
-## 正文
-
-### AMD
+## AMD
 
 `AMD` 即`Asynchronous Module Definition`，中文名是异步模块定义的意思。它是一个在浏览器端模块化开发的规范
 
@@ -23,7 +21,7 @@ tags: JS
 1. 多个`js`文件可能有依赖关系，被依赖的文件需要早于依赖它的文件加载到浏览器
 2. `js`加载的时候浏览器会停止页面渲染，加载文件越多，页面失去响应时间越长
 
-#### demo
+### demo
 
 ```
 // 定义模块 myModule.js
@@ -44,7 +42,7 @@ require(['myModule'], function (my){
 });
 ````
 
-#### 语法
+### 语法
 
 `requireJS`定义了一个函数 `define`，它是全局变量，用来定义模块
 ```
@@ -66,14 +64,13 @@ require([dependencies], function(){});
 
 `require()`函数在加载依赖的函数的时候是异步加载的，这样浏览器不会失去响应，它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。
 
-### CMD
+## CMD
 
 `CMD` 即`Common Module Definition`通用模块定义，`CMD`规范是国内发展出来的，就像`AMD`有个`requireJS`，`CMD`有个浏览器的实现`SeaJS`，`SeaJS`要解决的问题和`requireJS`一样，只不过在模块定义方式和模块加载（可以说运行、解析）时机上有所不同
 
-#### 语法
+### 语法
 `Sea.js` 推崇一个模块一个文件，遵循统一的写法
 
-##### define
 ```
 define(id?, deps?, factory)
 ```
@@ -86,7 +83,7 @@ define(id?, deps?, factory)
 ```
 function(require, exports, module)
 ```
-#### require
+### require
 
 `require` 是 `factory` 函数的第一个参数
 
@@ -95,13 +92,13 @@ require(id)
 ```
 `require` 是一个方法，接受`模块标识`作为唯一参数，用来获取其他模块提供的接口
 
-#### exports
+### exports
 `exports` 是一个对象，用来向外提供模块接口
 
-#### module
+### module
 `module` 是一个对象，上面存储了与当前模块相关联的一些属性和方法
 
-#### demo
+### demo
 ```
 // 定义模块  myModule.js
 define(function(require, exports, module) {
@@ -115,7 +112,7 @@ seajs.use(['myModule.js'], function(my){
 });
 ```
 
-### AMD与CMD区别
+## AMD与CMD区别
 关于这两个的区别网上可以搜出一堆文章，简单总结一下
 
 最明显的区别就是在模块定义时对依赖的处理不同

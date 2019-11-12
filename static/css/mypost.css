@@ -1,7 +1,8 @@
 #mypost .postinfo{
-    font-size: 20px;
-    margin-bottom: 40px;
-    font-weight: bold;
+    font-size: 1.6em;
+    padding: 1em 0 .5em;
+    margin-bottom: .5em;
+    border-bottom: 1px solid #45b787;
 }
 
 #mypost .main{
@@ -13,7 +14,7 @@
 }
 
 #mypost .main img{
-    width: 100%;
+    max-width: 100%;
     height: auto;
 }
 
@@ -25,7 +26,7 @@
 
 #mypost .main blockquote{
     margin: 13px 0;
-    border-left: 3px solid #000;
+    border-left: 3px solid #45b787;
     /*text-indent: 20px;*/
 	padding-left: 13px;
 }
@@ -40,11 +41,25 @@
 }
 
 #mypost .main h1{
-    font-size: 18px;
-    border-bottom: 1px solid #AAA;
+    font-size: 1.6em;
+    padding: .5em 0;
+    margin-bottom: .5em;
 }
-#mypost .main h2,#mypost .main h3,#mypost .main h4,#mypost .main h5,#mypost .main h6{
-    font-size: 15px;
+#mypost .main h2{
+    font-size: 1.4em;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    color: #000;
+}
+#mypost .main h3{
+    font-size: 1.2em;
+}
+#mypost .main h4{
+    font-size: 1em;
+}
+#mypost .main h3,#mypost .main h4,#mypost .main h5,#mypost .main h6{
+    font-weight: normal;
+    color: #000;
 }
 
 #mypost .main ul,#mypost .main ol {

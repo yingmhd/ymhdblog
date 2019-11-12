@@ -11,7 +11,7 @@ tags: CSS3
 2. transition(过度)
 3. animation(动画)
 
-### transform
+## transform
 
 ```css
 transform: rotate(360deg) scale(-1.2,1.2) translate(100px,50px) skew(45deg,45deg)
@@ -21,7 +21,7 @@ transform: rotate(360deg) scale(-1.2,1.2) translate(100px,50px) skew(45deg,45deg
 3. 位移translate
 4. 倾斜skew
 
-### transition
+## transition
 
 ```css
 .first{
@@ -40,7 +40,7 @@ background:red;
 ```
 具体来说就是让属性的变化有一个过渡的效果
 
-### animation
+## animation
 
 ```css
 div{aninmation:demo 1s ease}
@@ -53,7 +53,7 @@ to {width:20rem;}
 ```
 首先需要`@keyframes`定义一个动画，然后用`animation`启动它，`transition`有点像它的简化版
 
-### 3D
+## 3D
 
 上面的`transition`属性值都是两个，是基于`2D`，即X,Y轴，而如果要加一个Z轴，就必须声明它
 
