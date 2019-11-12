@@ -3,7 +3,7 @@ layout: mypost
 title: CMD与AMD
 description: JS模块化规范CMD和AMD
 keywords: CMD,AMD
-tags: JS规范
+tags: JS
 ---
 
 ## 前言
