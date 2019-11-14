@@ -18,7 +18,7 @@ Person.prototype == man
  ```
 * 构造函数创建的实例对象（man）,默认会包含一个内部属性(\__proto__)，指向构造函数的原型对象(Person.prototype)
 ```
- man.\__proto__ == Person.prototype
+ man.__proto__ == Person.prototype
  ```
 
 ## 原型的语法：
