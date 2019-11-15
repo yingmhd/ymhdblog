@@ -108,6 +108,8 @@
 	word-break: normal;
     white-space: pre;
     max-height: 35em;
+    display: block;
+    padding-bottom: 1em;
 }
 
 #mypost .main pre.highlight {
