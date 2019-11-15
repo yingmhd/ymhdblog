@@ -82,7 +82,6 @@
     padding: .1em 1em;
     border-radius: 3px;
     color: #45b787;
-    max-height: 35em;
 }
 
 #mypost .main pre{
@@ -108,6 +107,7 @@
     border: 0;
 	word-break: normal;
     white-space: pre;
+    max-height: 35em;
 }
 
 #mypost .main pre.highlight {
