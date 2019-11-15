@@ -82,6 +82,7 @@
     padding: .1em 1em;
     border-radius: 3px;
     color: #45b787;
+    min-height: 35em;
 }
 
 #mypost .main pre{
