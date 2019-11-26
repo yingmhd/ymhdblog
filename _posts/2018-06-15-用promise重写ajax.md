@@ -3,8 +3,9 @@ layout: mypost
 title: 使用promise封装ajax
 description: 使用promise封装ajax，使用promise优化ajax
 keywords: promise,ajax
-tags: JS
+tags: ['ES6','JS']
 ---
+
 ## 前言
 ajax虽然用回调解决了JS异步的问题，但是回调函数中再异步再回调，回调嵌套就形成了一个地狱回调，不仅代码不美观而且影响阅读，但是自从有了promise之后，就勉强解决了地域回调的现象。
 
