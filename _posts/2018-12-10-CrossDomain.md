@@ -32,18 +32,53 @@ tags: 跨域
 
 跨域是针对前端来的，服务端是没有跨域这个东西的，所以后台设置一下，前端访问时访问一个同源页面，然后后台把请求的数据转到不同源的页面即可。
 
+> 前端
+
+```
+    var xhr = new XMLHttpRequest();
+    var url = 'http://localhost:3000/api';    // 向http://localhost:3000/api发出请求，获取数据
+    xhr.open('GET', url);
+    xhr.send(null);
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {  // 如果请求成功
+            text.innerHTML = xhr.response;
+        }
+    }
+```
+> 同域服务器
+
+```
+    // nodeJs express
+    var proxy = require('http-proxy-middleware');
+    var app = express();
+    app.use('/api', proxy({target: 'http://localhost:3001/', changeOrigin: true}));
+```
+
 ## 3.JSONP
 
-因为<script>内嵌资源是允许的，所以可以把请求的接口放在`<script>`标签上，然后附带我们的回调函数
+因为`<script>`内嵌资源是允许的，所以可以把请求的接口放在`<script>`标签上，然后附带我们的回调函数
+
+> 前端
 
 ```
-<script src="http://other.com/ajax.json?callback=myFunction"></script>
+  <script src="http://other.com/ajax.json?callback=myFunction"></script>
 ```
+
+> 跨域服务器
+        
 接口获取到callback后，把返回的数据作为参数传给callback并执行。
 
-所以它有三个明显的缺点：
+```
+  // nodeJs express
+  app.get('/', function (req, res) {
+      var callbackName = req.query.callback;
+      res.send(callbackName+"({'message': 'hello world'});");
+  })
+```
 
-1. 需要后端的配合
+> 缺点
+
+1. 存在安全问题
 2. 只能是GET请求
 3. 调用是异步的
 
@@ -87,9 +122,8 @@ window.addEventListener('mesage',function(e){
 
 CORS需要浏览器和服务器同时支持，关键是服务器，只要服务器实现了CORS接口就可以跨域通信。
 
-### 两种请求
 
-CORS将请求分为两类：简单请求和非简单请求。
+> CORS将请求分为两类：简单请求和非简单请求。
 
 非简单请求的条件：
 1. 请求方式是「PUT」、「DELETE」
@@ -104,7 +138,7 @@ CORS将请求分为两类：简单请求和非简单请求。
 如果源在许可范围内，就会返回响应，并多出几个信息字段。
 
 ```
-Access-Control-Allow-Origin: http://api.bob.com
+Access-Control-Allow-Origin: http://localhost:3000
 Access-Control-Allow-Credentials: true
 Access-Control-Expose-Headers: FooBar
 Content-Type: text/html; charset=utf-8
@@ -112,26 +146,50 @@ Content-Type: text/html; charset=utf-8
 
 1. `Access-Control-Allow-Origin`必须字段。如果是`*`，表示接收任何域名的请求。
 2. `Access-Control-Allow-Credentials`可选字段。CORS请求默认是不带cookie和HTTP信息的，如果为`true`，表明服务器许可请求中可以包含cookie
-> 除了服务器允许请求附带cookie和HTTP信息，客户端也必须允许
-> ```
-> var xhr = new XMLHttpRequest();
-> xhr.withCredentials = true;
-> ```
+     。除了服务器允许请求附带cookie和HTTP信息，客户端也必须允许
+    ```
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+    ```
 3. `Access-Control-Expose-Headers: FooBar`该字段可选。CORS请求时，`XMLHttpRequest`对象的`getResponseHeader()`方法只能拿到6个基本字段：`Cache-Control、Content-Language、Content-Type、Expires、Last-Modified、Pragma`。如果想拿到其他字段，就必须在`Access-Control-Expose-Headers`里面指定。上面的例子指定，`getResponseHeader('FooBar')`可以返回FooBar字段的值。
+
+> 前端
+```javascript
+    var xhr = new XMLHttpRequest();
+    var url = 'http://localhost:3001';    // 请求的3001端口获取数据
+    xhr.open('GET', url);                 // 与3001端口建立一个连接
+    xhr.send(null);                       // 发送给3001端口数据为空
+    xhr.onreadystatechange = () => {     // 请求状态改变后调用这个函数
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {  // 如果请求成功
+            text.innerHTML = xhr.response;
+        }
+    }
+```
+
+> 跨域服务器
+
+```
+    // nodeJs express
+    var app = express();
+    app.get('/', (req, res) => {
+        res.set('Access-Control-Allow-Origin', 'http://localhost:3000'); // 设置允许跨域的origin，允许3000端口访问本端口（3001）
+        res.send("Hello world");
+    });
+```
 
 ### 非简单请求
 
 非简单请求的不同之处在于在正式通信之前会有一次HTTP查询请求，成为「预检」请求(preflight)
 
-#### Javascript脚本：
+> 前端
 ```
-var url = 'http://api.alice.com/cors';
+var url = 'http://localhost:3001';
 var xhr = new XMLHttpRequest();
 xhr.open('PUT', url, true);
 xhr.setRequestHeader('X-Custom-Header', 'value');
 xhr.send();
 ```
-#### 预检请求
+> 浏览器
 
 浏览器发现这是一个非简单请求，就会自动发出一个预检请求。
 ```
@@ -147,7 +205,7 @@ User-Agent: Mozilla/5.0...
 
 预检的请求方式是`OPTIONS`,表示这个请求是用来询问的。
 
-#### 预检请求回应
+> 跨域服务器
 
 服务器收到预检请求后，检查了`Origin`、`Access-Control-Request-Method`和`Access-Control-Request-Headers`字段以后确认允许跨域请求，然后做出回应
 
@@ -169,6 +227,10 @@ Content-Type: text/plain
 `Access-Control-Allow-Methods`表明服务器支持的所有跨域请求的方法。
 
 如果预检请求通过，以后每次的CORS请求就跟简单请求一样了。
+
+> 缺点
+
+非简单请求，第一次请求会发送两次请求
 
 ## 6.WebSocket
 
