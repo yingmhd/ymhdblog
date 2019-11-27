@@ -3,3 +3,4 @@ _site/
 _site/*.html
 _site/*/*.html
 .DS_Store
+.idea/
